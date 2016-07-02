@@ -8,7 +8,7 @@ module LN.Validate.Organization (
 
 
 import           Control.Monad             (void)
-import           LN.T.Error
+import           LN.T.Error                (ValidationError)
 import           LN.T.Organization.Request (OrganizationRequest (..))
 import           LN.Validate.Internal
 
