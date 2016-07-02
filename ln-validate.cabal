@@ -31,6 +31,7 @@ library
                      , transformers
 
                      , haskell-ifte
+                     , ln-sanitize
                      , ln-types
   ghc-options:         -Wall -Werror
   default-language:    Haskell2010
@@ -40,8 +41,10 @@ test-suite ln-validate-test
   hs-source-dirs:      test
   main-is:             Spec.hs
   build-depends:       base
+                     , hspec
+
                      , ln-validate
-  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  ghc-options:         -Wall -Werror -threaded -rtsopts -with-rtsopts=-N
   default-language:    Haskell2010
 
 source-repository head
