@@ -15,16 +15,24 @@ cabal-version:       >=1.10
 
 library
   hs-source-dirs:      src
-  exposed-modules:     Lib
-  build-depends:       base >= 4.7 && < 5
-  default-language:    Haskell2010
-
-executable ln-validate-exe
-  hs-source-dirs:      app
-  main-is:             Main.hs
-  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  exposed-modules:     LN.Validate
+                     , LN.Validate.Internal
+                     , LN.Validate.Organization
+                     , LN.Validate.User
+                     , LN.Generate
+                     , LN.Generate.Internal
+                     , LN.Generate.Organization
+                     , LN.Generate.User
   build-depends:       base
-                     , ln-validate
+                     , QuickCheck
+                     , quickcheck-text
+                     , string-conversions
+                     , text
+                     , transformers
+
+                     , haskell-ifte
+                     , ln-types
+  ghc-options:         -Wall -Werror
   default-language:    Haskell2010
 
 test-suite ln-validate-test
