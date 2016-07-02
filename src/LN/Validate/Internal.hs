@@ -13,8 +13,8 @@ module LN.Validate.Internal (
 
 
 import           Control.Monad (void)
-import           Data.Char
-import           Data.Ifte
+import           Data.Char     (isAlphaNum, isControl, isLower, isSpace)
+import           Data.Ifte     (teifEither)
 import           Data.Text     (Text)
 import qualified Data.Text     as T
 import           LN.T.Error    (ValidationError (..), ValidationErrorCode (..))

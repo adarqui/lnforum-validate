@@ -8,7 +8,7 @@ module LN.Validate.User (
 
 
 import           Control.Monad        (void)
-import           LN.T.Error
+import           LN.T.Error           (ValidationError)
 import           LN.T.User.Request    (UserRequest (..))
 import           LN.Validate.Internal
 
