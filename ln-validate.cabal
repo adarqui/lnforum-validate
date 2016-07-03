@@ -41,6 +41,7 @@ test-suite ln-validate-test
   main-is:             Spec.hs
   build-depends:       base
                      , hspec
+                     , text
                      , text-icu
                      , text-regex-replace
                      , ln-types

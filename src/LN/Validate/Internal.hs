@@ -12,7 +12,10 @@ module LN.Validate.Internal (
   isValidSafeName,
   isValidDisplayName,
   isValidEmail,
-  isValidNonEmptyString
+  isValidNonEmptyString,
+  isValidLength,
+  minDisplayName,
+  maxDisplayName
 ) where
 
 
@@ -85,6 +88,7 @@ isValidSafeName nick = do
 isValidDisplayName :: Text -> Either ValidationErrorCode Text
 isValidDisplayName name = do
   void $ isValidNonEmptyString name
+  void $ isValidLength minDisplayName maxDisplayName name
   teifEither name Validate_InvalidCharacters $ onlyAlphaNumAndSpaces name
 
 
@@ -104,3 +108,23 @@ isValidEmail email = do
 
 isValidNonEmptyString :: Text -> Either ValidationErrorCode Text
 isValidNonEmptyString s = teifEither s Validate_CannotBeEmpty $ s /= ""
+
+
+
+isValidLength :: Int -> Int -> Text -> Either ValidationErrorCode Text
+isValidLength min' max' s
+  | len < min' = Left Validate_TooShort
+  | len > max' = Left Validate_TooLong
+  | otherwise                  = Right s
+  where
+  len = T.length s
+
+
+
+minDisplayName :: Int
+minDisplayName = 1
+
+
+
+maxDisplayName :: Int
+maxDisplayName = 32
