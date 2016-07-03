@@ -1,18 +1,29 @@
+{-# LANGUAGE ExplicitForAll    #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 
 module LN.Generate.Internal (
+  genUppercaseString,
+  genLowercaseString,
+  genAlphaString,
+  genDigitString,
+  genAlphaNumString,
+  genSpaceString,
+  genPunctChar,
+  genAsciiChar,
+  genAsciiString,
+  genUsername,
   genDisplayNick
 ) where
 
 
 
+
 import           Test.QuickCheck
-import           Test.QuickCheck.Utf8
-import Data.Monoid ((<>))
 
 
 
+oneOf :: forall a. [Gen a] -> Gen a
 oneOf = oneof
 
 

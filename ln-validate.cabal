@@ -29,7 +29,6 @@ library
                      , string-conversions
                      , text
                      , transformers
-
                      , haskell-ifte
                      , ln-sanitize
                      , ln-types
@@ -42,7 +41,9 @@ test-suite ln-validate-test
   main-is:             Spec.hs
   build-depends:       base
                      , hspec
-
+                     , text-icu
+                     , text-regex-replace
+                     , ln-types
                      , ln-validate
   ghc-options:         -Wall -Werror -threaded -rtsopts -with-rtsopts=-N
   default-language:    Haskell2010

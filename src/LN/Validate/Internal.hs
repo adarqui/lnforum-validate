@@ -2,10 +2,13 @@
 
 module LN.Validate.Internal (
   isLowerAlphaNum,
+  onlyLowerAlphaNum,
+  onlyAlphaNum,
+  onlyAlphaNumAndSpaces,
+  noSpaces,
   invalid,
-  isValidNick,
+  isValidSafeName,
   isValidDisplayName,
-  isValidName,
   isValidEmail,
   isValidNonEmptyString
 ) where
@@ -36,6 +39,11 @@ onlyAlphaNum = T.all isAlphaNum
 
 
 
+onlyAlphaNumAndSpaces :: Text -> Bool
+onlyAlphaNumAndSpaces = T.all (\c -> isAlphaNum c || isSpace c)
+
+
+
 noSpaces :: Text -> Bool
 noSpaces = T.all (not . isSpace)
 
@@ -52,8 +60,8 @@ invalid _ (Right a)                         = Right a
 
 
 
-isValidNick :: Text -> Either ValidationErrorCode Text
-isValidNick nick = do
+isValidSafeName :: Text -> Either ValidationErrorCode Text
+isValidSafeName nick = do
   void $ isValidNonEmptyString nick
   teifEither nick Validate_InvalidCharacters $ onlyLowerAlphaNum nick
 
@@ -62,14 +70,7 @@ isValidNick nick = do
 isValidDisplayName :: Text -> Either ValidationErrorCode Text
 isValidDisplayName name = do
   void $ isValidNonEmptyString name
-  teifEither name Validate_InvalidCharacters $ onlyAlphaNum name
-
-
-
-isValidName :: Text -> Either ValidationErrorCode Text
-isValidName name = do
-  void $ isValidNonEmptyString name
-  teifEither name Validate_InvalidCharacters $ onlyAlphaNum name
+  teifEither name Validate_InvalidCharacters $ onlyAlphaNumAndSpaces name
 
 
 
