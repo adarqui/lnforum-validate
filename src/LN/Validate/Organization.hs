@@ -17,10 +17,10 @@ import           LN.Validate.Internal
 
 validateOrganizationRequest :: OrganizationRequest -> Either ValidationError OrganizationRequest
 validateOrganizationRequest org_req = do
-  void $ invalid (Just "display_name") $ isValidDisplayName organizationRequestDisplayName
-  void $ invalid (Just "email")        $ isValidEmail organizationRequestEmail
-  void $ invalid (Just "company")      $ isValidNonEmptyString organizationRequestCompany
-  void $ invalid (Just "location")     $ isValidNonEmptyString organizationRequestLocation
+  void $ isValid (Just "display_name") $ isValidDisplayName organizationRequestDisplayName
+  void $ isValid (Just "email")        $ isValidEmail organizationRequestEmail
+  void $ isValid (Just "company")      $ isValidNonEmptyString organizationRequestCompany
+  void $ isValid (Just "location")     $ isValidNonEmptyString organizationRequestLocation
   Right z
   where
   z@OrganizationRequest{..} = sanitizeOrganizationRequest org_req

@@ -6,7 +6,9 @@ module LN.Validate.Internal (
   onlyAlphaNum,
   onlyAlphaNumAndSpaces,
   noSpaces,
-  invalid,
+  isValid,
+  isValidApp,
+  isValidAppM,
   isValidSafeName,
   isValidDisplayName,
   isValidEmail,
@@ -20,7 +22,7 @@ import           Data.Char     (isAlphaNum, isLower, isSpace)
 import           Data.Ifte     (teifEither)
 import           Data.Text     (Text)
 import qualified Data.Text     as T
-import           LN.T.Error    (ValidationError (..), ValidationErrorCode (..))
+import           LN.T.Error    (ApplicationError(..), ValidationError (..), ValidationErrorCode (..))
 
 
 
@@ -54,9 +56,22 @@ noSpaces = T.all (not . isSpace)
 
 
 
-invalid :: Maybe Text -> Either ValidationErrorCode a -> Either ValidationError a
-invalid m_text (Left validation_error_code) = Left $ Validate validation_error_code m_text
-invalid _ (Right a)                         = Right a
+isValid :: Maybe Text -> Either ValidationErrorCode a -> Either ValidationError a
+isValid m_text (Left validation_error_code) = Left $ Validate validation_error_code m_text
+isValid _ (Right a)                         = Right a
+
+
+
+isValidApp :: Either ValidationError a -> Either ApplicationError a
+isValidApp (Left validation_error) = Left $ Error_Validation validation_error
+isValidApp (Right a)               = Right a
+
+
+
+isValidAppM :: Monad m => Either ValidationError a -> m (Either ApplicationError a)
+isValidAppM lr = do
+  let lr' = isValidApp lr
+  pure lr'
 
 
 
