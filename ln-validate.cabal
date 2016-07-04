@@ -19,10 +19,18 @@ library
                      , LN.Validate.Internal
                      , LN.Validate.Organization
                      , LN.Validate.User
+                     , LN.Validate.Forum
+                     , LN.Validate.Board
+                     , LN.Validate.Thread
+                     , LN.Validate.ThreadPost
                      , LN.Generate
                      , LN.Generate.Internal
                      , LN.Generate.Organization
                      , LN.Generate.User
+                     , LN.Generate.Forum
+                     , LN.Generate.Board
+                     , LN.Generate.Thread
+                     , LN.Generate.ThreadPost
   build-depends:       base
                      , QuickCheck
                      , quickcheck-text

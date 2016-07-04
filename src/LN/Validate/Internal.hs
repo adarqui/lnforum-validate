@@ -10,12 +10,9 @@ module LN.Validate.Internal (
   isValidApp,
   isValidAppM,
   isValidSafeName,
-  isValidDisplayName,
   isValidEmail,
   isValidNonEmptyString,
-  isValidLength,
-  minDisplayName,
-  maxDisplayName
+  isValidLength
 ) where
 
 
@@ -85,14 +82,6 @@ isValidSafeName nick = do
 
 
 
-isValidDisplayName :: Text -> Either ValidationErrorCode Text
-isValidDisplayName name = do
-  void $ isValidNonEmptyString name
-  void $ isValidLength minDisplayName maxDisplayName name
-  teifEither name Validate_InvalidCharacters $ onlyAlphaNumAndSpaces name
-
-
-
 isValidEmail :: Text -> Either ValidationErrorCode Text
 isValidEmail email = do
   void $ isValidNonEmptyString email
@@ -118,13 +107,3 @@ isValidLength min' max' s
   | otherwise                  = Right s
   where
   len = T.length s
-
-
-
-minDisplayName :: Int
-minDisplayName = 1
-
-
-
-maxDisplayName :: Int
-maxDisplayName = 32

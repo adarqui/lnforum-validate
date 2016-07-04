@@ -3,17 +3,24 @@
 {-# LANGUAGE RecordWildCards   #-}
 
 module LN.Generate.Internal (
+  oneOf,
+  genUppercaseChar,
   genUppercaseString,
+  genLowercaseChar,
   genLowercaseString,
+  genAlphaChar,
   genAlphaString,
+  genDigitChar,
   genDigitString,
+  genAlphaNumChar,
   genAlphaNumString,
+  genSpaceChar,
   genSpaceString,
   genPunctChar,
   genAsciiChar,
   genAsciiString,
-  genUsername,
-  genDisplayNick
+  genDisplayName'1,
+  genMaybeDescription,
 ) where
 
 
@@ -88,19 +95,14 @@ genAsciiString = listOf genAsciiChar
 
 
 
-
-genUsername :: Gen String
-genUsername = listOf $ oneOf [genUppercaseChar, genLowercaseChar, genDigitChar]
-
-
-
-genDisplayNick :: Gen String
-genDisplayNick = listOf $ oneOf [genAlphaNumChar, genSpaceChar]
+genDisplayName'1 :: Int -> Int -> Gen String
+genDisplayName'1 i j = choose (i, j) >>= flip vectorOf (oneOf [genAlphaNumChar, genSpaceChar])
 
 
 
-
--- genEmail :: IO String
--- genEmail = do
---   user <- generate $ genUsername
---   pure (user <> "@adarq.org")
+genMaybeDescription :: Int -> Gen (Maybe String)
+genMaybeDescription j = do
+  sz <- choose (False, True)
+  if sz
+    then Just <$> vectorOf j (oneOf [genAsciiChar])
+    else pure $ Nothing
