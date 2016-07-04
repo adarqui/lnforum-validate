@@ -76,9 +76,9 @@ isValidAppM lr = do
 
 
 isValidSafeName :: Text -> Either ValidationErrorCode Text
-isValidSafeName nick = do
-  void $ isValidNonEmptyString nick
-  teifEither nick Validate_InvalidCharacters $ onlyLowerAlphaNum nick
+isValidSafeName name = do
+  void $ isValidNonEmptyString name
+  teifEither name Validate_InvalidCharacters $ onlyLowerAlphaNum name
 
 
 

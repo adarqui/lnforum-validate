@@ -27,7 +27,7 @@ import           LN.Validate.Internal
 
 validateUserRequest :: UserRequest -> Either ValidationError UserRequest
 validateUserRequest user_req = do
-  void $ isValid (Just "display_nick") $ isValidUserDisplayName userRequestDisplayName
+  void $ isValid (Just "display_name") $ isValidUserDisplayName userRequestDisplayName
   void $ isValid (Just "full_name")    $ isValidUserFullName userRequestFullName
   void $ isValid (Just "email")        $ isValidEmail userRequestEmail
   void $ isValid (Just "plugin")       $ isValidNonEmptyString userRequestPlugin
