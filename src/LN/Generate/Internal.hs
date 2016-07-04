@@ -21,11 +21,17 @@ module LN.Generate.Internal (
   genAsciiString,
   genDisplayName'1,
   genMaybeDescription,
+  genMembership,
+  genVisibility,
+  genProfileGender
 ) where
 
 
 
 
+import           LN.T.Membership (Membership (..))
+import           LN.T.Profile    (ProfileGender (..))
+import           LN.T.Visibility (Visibility (..))
 import           Test.QuickCheck
 
 
@@ -106,3 +112,18 @@ genMaybeDescription j = do
   if sz
     then Just <$> vectorOf j (oneOf [genAsciiChar])
     else pure $ Nothing
+
+
+
+genMembership :: Gen Membership
+genMembership = elements [Membership_InviteOnly, Membership_RequestInvite, Membership_Join, Membership_Locked]
+
+
+
+genVisibility :: Gen Visibility
+genVisibility = elements [Public, Private]
+
+
+
+genProfileGender :: Gen ProfileGender
+genProfileGender = elements [GenderMale, GenderFemale, GenderUnknown]

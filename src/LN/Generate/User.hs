@@ -5,8 +5,6 @@ module LN.Generate.User (
   genValidUserDisplayName,
   genUserFullName,
   genValidUserFullName,
-  genUserFullName,
-  genValidUserFullName,
   buildValidUser
 ) where
 
@@ -15,7 +13,6 @@ module LN.Generate.User (
 import           Control.Monad.IO.Class  (liftIO)
 import           Data.Monoid             ((<>))
 import           Data.String.Conversions (cs)
-import           LN.Generate.Internal
 import           LN.Generate.Internal
 import           LN.T.User.Request       (UserRequest (..))
 import           LN.Validate.User
