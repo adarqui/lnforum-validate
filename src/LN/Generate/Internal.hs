@@ -3,6 +3,7 @@
 {-# LANGUAGE RecordWildCards   #-}
 
 module LN.Generate.Internal (
+  genIO,
   oneOf,
   genUppercaseChar,
   genUppercaseString,
@@ -19,20 +20,28 @@ module LN.Generate.Internal (
   genPunctChar,
   genAsciiChar,
   genAsciiString,
+  genIntRange,
   genDisplayName'1,
   genMaybeDescription,
   genMembership,
   genVisibility,
-  genProfileGender
+  genProfileGender,
+  genTags
 ) where
 
 
 
 
-import           LN.T.Membership (Membership (..))
-import           LN.T.Profile    (ProfileGender (..))
-import           LN.T.Visibility (Visibility (..))
+import           Control.Monad.IO.Class (liftIO)
+import           LN.T.Membership        (Membership (..))
+import           LN.T.Profile           (ProfileGender (..))
+import           LN.T.Visibility        (Visibility (..))
 import           Test.QuickCheck
+
+
+
+genIO :: forall a. Gen a -> IO a
+genIO gen = liftIO $ generate gen
 
 
 
@@ -88,6 +97,12 @@ genSpaceString :: Gen String
 genSpaceString = listOf genSpaceChar
 
 
+
+genHyphenChar :: Gen Char
+genHyphenChar = elements ['-']
+
+
+
 genPunctChar :: Gen Char
 genPunctChar = elements "!@#$%^&*()_-+=~`{[}]|\\:;\"'<,>.?/"
 
@@ -98,6 +113,11 @@ genAsciiChar = oneOf [genUppercaseChar, genLowercaseChar, genDigitChar, genSpace
 
 genAsciiString :: Gen String
 genAsciiString = listOf genAsciiChar
+
+
+
+genIntRange :: Int -> Int -> Gen Int
+genIntRange i j = choose (i, j)
 
 
 
@@ -127,3 +147,22 @@ genVisibility = elements [Public, Private]
 
 genProfileGender :: Gen ProfileGender
 genProfileGender = elements [GenderMale, GenderFemale, GenderUnknown]
+
+
+
+genTagChar :: Gen Char
+genTagChar = oneOf [genAlphaNumChar, genHyphenChar]
+
+
+
+genTagString :: Gen String
+genTagString = listOf genTagChar
+
+
+
+genTags :: Gen [String]
+genTags = do
+  n <- choose (0, 10)
+  if n > 0
+    then vectorOf n (oneOf [genTagString])
+    else pure []

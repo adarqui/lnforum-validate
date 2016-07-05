@@ -8,9 +8,14 @@ module LN.Validate.Forum (
   maxForumDisplayName,
   maxForumDescription,
   minForumThreadsPerBoard,
+  maxForumThreadsPerBoard,
   minForumThreadPostsPerThread,
+  maxForumThreadPostsPerThread,
+  minForumRecentThreadsLimit,
   maxForumRecentThreadsLimit,
+  minForumRecentPostsLimit,
   maxForumRecentPostsLimit,
+  minForumMotwLimit,
   maxForumMotwLimit
 ) where
 
