@@ -4,5 +4,5 @@ module LN.Generate (
 
 
 
-import           LN.Generate.Organization as A ()
+import           LN.Generate.Organization as A
 import           LN.Generate.User         as A
