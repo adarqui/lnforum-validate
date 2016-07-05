@@ -27,7 +27,10 @@ module LN.Generate.Internal (
   genVisibility,
   genProfileGender,
   genTags,
-  genBool
+  genBool,
+  genPostDataRaw,
+  genPostDataBBCode,
+  genPostData
 ) where
 
 
@@ -38,6 +41,8 @@ import           LN.T.Membership        (Membership (..))
 import           LN.T.Profile           (ProfileGender (..))
 import           LN.T.Visibility        (Visibility (..))
 import           Test.QuickCheck
+import qualified Data.Text as T (pack)
+import LN.T.ThreadPost (PostData(..))
 
 
 
@@ -172,3 +177,23 @@ genTags = do
 
 genBool :: Gen Bool
 genBool = elements [True, False]
+
+
+
+genPostDataRaw :: Gen PostData
+genPostDataRaw = (PostDataRaw . T.pack) <$> (choose (0, 1024*10) >>= \n -> vectorOf n genAsciiChar)
+
+
+
+genPostDataBBCode :: Gen PostData
+genPostDataBBCode = (PostDataBBCode . T.pack) <$> (choose (0, 1024*10) >>= \n -> vectorOf n genAsciiChar)
+
+
+
+genPostDataEmpty :: Gen PostData
+genPostDataEmpty = elements [PostDataEmpty]
+
+
+
+genPostData :: Gen PostData
+genPostData = oneOf [genPostDataRaw, genPostDataBBCode, genPostDataEmpty]
