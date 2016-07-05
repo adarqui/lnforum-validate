@@ -26,7 +26,8 @@ module LN.Generate.Internal (
   genMembership,
   genVisibility,
   genProfileGender,
-  genTags
+  genTags,
+  genBool
 ) where
 
 
@@ -166,3 +167,8 @@ genTags = do
   if n > 0
     then vectorOf n (oneOf [genTagString])
     else pure []
+
+
+
+genBool :: Gen Bool
+genBool = elements [True, False]
