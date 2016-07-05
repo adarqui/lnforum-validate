@@ -12,7 +12,9 @@ module LN.Validate.Internal (
   isValidSafeName,
   isValidEmail,
   isValidNonEmptyString,
-  isValidLength
+  isValidLength,
+  isValidIntRange,
+  isValidTags
 ) where
 
 
@@ -43,6 +45,11 @@ onlyAlphaNum = T.all isAlphaNum
 
 onlyAlphaNumAndSpaces :: Text -> Bool
 onlyAlphaNumAndSpaces = T.all (\c -> isAlphaNum c || isSpace c)
+
+
+
+onlyAlphaNumAndHyphens :: Text -> Bool
+onlyAlphaNumAndHyphens = T.all (\c -> isAlphaNum c || c == '-')
 
 
 
@@ -107,3 +114,19 @@ isValidLength min' max' s
   | otherwise                  = Right s
   where
   len = T.length s
+
+
+
+isValidIntRange :: Int -> Int -> Int -> Either ValidationErrorCode Int
+isValidIntRange value min' max'
+  | value < min' = Left Validate_SmallerThanMinimum
+  | value > max' = Left Validate_GreaterThanMaximum
+  | otherwise                  = Right value
+
+
+
+isValidTags :: [Text] -> Either ValidationErrorCode [Text]
+isValidTags tags = do
+  mapM (\tag -> do
+    void $ isValidNonEmptyString tag
+    teifEither tag Validate_InvalidCharacters $ onlyAlphaNumAndHyphens tag) tags
