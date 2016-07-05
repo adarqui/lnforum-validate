@@ -42,7 +42,7 @@ import           Test.QuickCheck
 
 
 genIO :: forall a. Gen a -> IO a
-genIO gen = liftIO $ generate gen
+genIO = liftIO . generate
 
 
 

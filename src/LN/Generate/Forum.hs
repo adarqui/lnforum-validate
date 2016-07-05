@@ -20,7 +20,6 @@ module LN.Generate.Forum (
 
 
 
-import           Control.Monad.IO.Class  (liftIO)
 import           Data.Either             (isRight)
 import           Data.String.Conversions (cs)
 import qualified Data.Text               as T (pack)
@@ -40,15 +39,15 @@ buildValidForum = do
     else buildValidForum
   where
   go = do
-    display_name            <- liftIO $ generate genValidForumDisplayName
-    m_desc                  <- liftIO $ generate genValidForumDescription
-    threads_per_board       <- liftIO $ generate genValidForumThreadsPerBoard
-    thread_posts_per_thread <- liftIO $ generate genValidForumThreadPostsPerThread
-    recent_threads_limit    <- liftIO $ generate genValidForumRecentThreadsLimit
-    recent_posts_limit      <- liftIO $ generate genValidForumRecentPostsLimit
-    motw_limit              <- liftIO $ generate genValidForumMotwLimit
-    forum_tags              <- liftIO $ generate genTags
-    visibility              <- liftIO $ generate genVisibility
+    display_name            <- genIO genValidForumDisplayName
+    m_desc                  <- genIO genValidForumDescription
+    threads_per_board       <- genIO genValidForumThreadsPerBoard
+    thread_posts_per_thread <- genIO genValidForumThreadPostsPerThread
+    recent_threads_limit    <- genIO genValidForumRecentThreadsLimit
+    recent_posts_limit      <- genIO genValidForumRecentPostsLimit
+    motw_limit              <- genIO genValidForumMotwLimit
+    forum_tags              <- genIO genTags
+    visibility              <- genIO genVisibility
     pure $ sanitizeForumRequest $ ForumRequest {
       forumRequestDisplayName          = cs display_name,
       forumRequestDescription          = fmap cs m_desc,

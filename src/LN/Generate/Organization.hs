@@ -10,7 +10,6 @@ module LN.Generate.Organization (
 
 
 
-import           Control.Monad.IO.Class    (liftIO)
 import           Data.Either               (isRight)
 import           Data.Monoid               ((<>))
 import           Data.String.Conversions   (cs)
@@ -46,10 +45,10 @@ buildValidOrganization = do
     else buildValidOrganization
   where
   go = do
-    display_name <- liftIO $ generate genValidOrganizationDisplayName
-    m_desc       <- liftIO $ generate genValidOrganizationDescription
-    membership   <- liftIO $ generate genMembership
-    visibility   <- liftIO $ generate genVisibility
+    display_name <- genIO genValidOrganizationDisplayName
+    m_desc       <- genIO genValidOrganizationDescription
+    membership   <- genIO genMembership
+    visibility   <- genIO genVisibility
     let name     =  filter (/= ' ') display_name
     pure $ sanitizeOrganizationRequest $ OrganizationRequest {
       organizationRequestDisplayName = cs display_name,

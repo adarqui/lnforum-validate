@@ -10,7 +10,6 @@ module LN.Generate.User (
 
 
 
-import           Control.Monad.IO.Class  (liftIO)
 import           Data.Either             (isRight)
 import           Data.Monoid             ((<>))
 import           Data.String.Conversions (cs)
@@ -46,8 +45,8 @@ buildValidUser = do
     else buildValidUser
   where
   go = do
-    display_name <- liftIO $ generate genValidUserDisplayName
-    full_name    <- liftIO $ generate genValidUserFullName
+    display_name <- genIO genValidUserDisplayName
+    full_name    <- genIO genValidUserFullName
     let name     =  filter (/= ' ') display_name
     pure $ sanitizeUserRequest $ UserRequest {
       userRequestDisplayName = cs display_name,
