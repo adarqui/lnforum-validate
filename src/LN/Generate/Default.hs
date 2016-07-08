@@ -39,12 +39,17 @@ module LN.Generate.Default (
   defaultThreadPostRequest,
   testThreadPostRequest,
   defaultUserRequest,
-  testUserRequest
+  testUserRequest,
+  defaultProfileGender,
+  defaultProfileRequest,
+  testProfileRequest,
+  defaultUTCTime
 ) where
 
 
 
 import LN.T
+import Data.Time (UTCTime)
 
 
 
@@ -387,3 +392,31 @@ testUserRequest = defaultUserRequest {
   userRequestPlugin      = "test",
   userRequestIdent       = "test"
 }
+
+
+
+defaultProfileGender :: ProfileGender
+defaultProfileGender = GenderUnknown
+
+defaultProfileRequest :: ProfileRequest
+defaultProfileRequest = ProfileRequest {
+  profileRequestGender    = defaultProfileGender,
+  profileRequestBirthdate = defaultUTCTime,
+  profileRequestWebsite   = Nothing,
+  profileRequestLocation  = Nothing,
+  profileRequestSignature = Nothing,
+  profileRequestDebug     = False,
+  profileRequestGuard     = 0
+}
+
+testProfileRequest :: ProfileRequest
+testProfileRequest = defaultProfileRequest {
+  profileRequestWebsite   = Just "https://www.adarq.org",
+  profileRequestLocation  = Just "FL",
+  profileRequestSignature = Just "go get it."
+}
+
+
+
+defaultUTCTime :: UTCTime
+defaultUTCTime = read "2016-01-01 00:00:00.0 UTC" :: UTCTime
