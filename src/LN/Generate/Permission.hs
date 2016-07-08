@@ -16,6 +16,7 @@ genPermission :: Gen Permission
 genPermission = elements [Perm_Create, Perm_Read, Perm_Update, Perm_Delete, Perm_Execute]
 
 
+
 genPermissions :: Gen [Permission]
 genPermissions = listOf genPermission
 
