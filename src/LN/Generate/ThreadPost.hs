@@ -13,7 +13,7 @@ import           Data.String.Conversions (cs)
 import qualified Data.Text               as T (pack)
 import           LN.Generate.Internal
 import           LN.Sanitize.ThreadPost
-import           LN.T.ThreadPost.Request (ThreadPostRequest (..))
+import           LN.T.ThreadPost         (ThreadPostRequest (..))
 import           LN.Validate.ThreadPost
 import           Test.QuickCheck
 

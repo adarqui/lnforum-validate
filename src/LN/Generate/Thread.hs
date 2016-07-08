@@ -15,7 +15,7 @@ import           Data.String.Conversions (cs)
 import qualified Data.Text               as T (pack)
 import           LN.Generate.Internal
 import           LN.Sanitize.Thread
-import           LN.T.Thread.Request     (ThreadRequest (..))
+import           LN.T.Thread             (ThreadRequest (..))
 import           LN.Validate.Thread
 import           Test.QuickCheck
 

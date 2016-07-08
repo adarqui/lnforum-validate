@@ -20,7 +20,7 @@ import           Data.Text            (Text)
 import           LN.Sanitize.User     (sanitizeUserRequest)
 import           LN.T.Error           (ValidationError (..),
                                        ValidationErrorCode (..))
-import           LN.T.User.Request    (UserRequest (..))
+import           LN.T.User            (UserRequest (..))
 import           LN.Validate.Internal
 
 

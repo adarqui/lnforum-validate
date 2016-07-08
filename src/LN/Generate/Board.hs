@@ -15,7 +15,7 @@ import           Data.String.Conversions (cs)
 import qualified Data.Text               as T (pack)
 import           LN.Generate.Internal
 import           LN.Sanitize.Board
-import           LN.T.Board.Request      (BoardRequest (..))
+import           LN.T.Board              (BoardRequest (..))
 import           LN.Validate.Board
 import           Test.QuickCheck
 

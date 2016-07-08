@@ -37,8 +37,8 @@ resolver: lts-6.5
 # will not be run. This is useful for tweaking upstream packages.
 packages:
 - '.'
-- '../ln-types'
 - '../ln-sanitize'
+- '../haskell-ln-types'
 - '../haskell-api-helpers'
 - '../haskell-ifte'
 # Dependency packages to be pulled from upstream that are not in the resolver

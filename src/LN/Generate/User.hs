@@ -15,7 +15,7 @@ import           Data.Monoid             ((<>))
 import           Data.String.Conversions (cs)
 import           LN.Generate.Internal
 import           LN.Sanitize.User
-import           LN.T.User.Request       (UserRequest (..))
+import           LN.T.User               (UserRequest (..))
 import           LN.Validate.User
 import           Test.QuickCheck
 

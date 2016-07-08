@@ -17,7 +17,7 @@ import           Data.Text            (Text)
 import           LN.Sanitize.Thread   (sanitizeThreadRequest)
 import           LN.T.Error           (ValidationError (..),
                                        ValidationErrorCode (..))
-import           LN.T.Thread.Request  (ThreadRequest (..))
+import           LN.T.Thread          (ThreadRequest (..))
 import           LN.Validate.Internal
 
 

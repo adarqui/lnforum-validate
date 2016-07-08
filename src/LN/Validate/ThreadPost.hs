@@ -10,13 +10,13 @@ module LN.Validate.ThreadPost (
 
 
 
-import           Control.Monad           (void)
-import           Data.Ifte               (teifEither)
-import           Data.Text               (Text)
-import           LN.Sanitize.ThreadPost  (sanitizeThreadPostRequest)
-import           LN.T.Error              (ValidationError (..),
-                                          ValidationErrorCode (..))
-import           LN.T.ThreadPost.Request (ThreadPostRequest (..))
+import           Control.Monad          (void)
+import           Data.Ifte              (teifEither)
+import           Data.Text              (Text)
+import           LN.Sanitize.ThreadPost (sanitizeThreadPostRequest)
+import           LN.T.Error             (ValidationError (..),
+                                         ValidationErrorCode (..))
+import           LN.T.ThreadPost        (ThreadPostRequest (..))
 import           LN.Validate.Internal
 
 

@@ -11,13 +11,13 @@ module LN.Validate.Organization (
 
 
 
-import           Control.Monad             (void)
-import           Data.Ifte                 (teifEither)
-import           Data.Text                 (Text)
-import           LN.Sanitize.Organization  (sanitizeOrganizationRequest)
-import           LN.T.Error                (ValidationError (..),
-                                            ValidationErrorCode (..))
-import           LN.T.Organization.Request (OrganizationRequest (..))
+import           Control.Monad            (void)
+import           Data.Ifte                (teifEither)
+import           Data.Text                (Text)
+import           LN.Sanitize.Organization (sanitizeOrganizationRequest)
+import           LN.T.Error               (ValidationError (..),
+                                           ValidationErrorCode (..))
+import           LN.T.Organization        (OrganizationRequest (..))
 import           LN.Validate.Internal
 
 

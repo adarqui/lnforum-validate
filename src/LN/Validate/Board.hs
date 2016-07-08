@@ -15,7 +15,7 @@ import           Control.Monad        (void)
 import           Data.Ifte            (teifEither)
 import           Data.Text            (Text)
 import           LN.Sanitize.Board    (sanitizeBoardRequest)
-import           LN.T.Board.Request   (BoardRequest (..))
+import           LN.T.Board           (BoardRequest (..))
 import           LN.T.Error           (ValidationError (..),
                                        ValidationErrorCode (..))
 import           LN.Validate.Internal

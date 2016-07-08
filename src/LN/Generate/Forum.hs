@@ -25,7 +25,7 @@ import           Data.String.Conversions (cs)
 import qualified Data.Text               as T (pack)
 import           LN.Generate.Internal
 import           LN.Sanitize.Forum
-import           LN.T.Forum.Request      (ForumRequest (..))
+import           LN.T.Forum              (ForumRequest (..))
 import           LN.Validate.Forum
 import           Test.QuickCheck
 

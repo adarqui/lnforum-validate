@@ -21,13 +21,13 @@ module LN.Validate.Forum (
 
 
 
-import           Control.Monad             (void)
-import           Data.Ifte                 (teifEither)
-import           Data.Text                 (Text)
-import           LN.Sanitize.Forum  (sanitizeForumRequest)
-import           LN.T.Error                (ValidationError (..),
-                                            ValidationErrorCode (..))
-import           LN.T.Forum.Request (ForumRequest (..))
+import           Control.Monad        (void)
+import           Data.Ifte            (teifEither)
+import           Data.Text            (Text)
+import           LN.Sanitize.Forum    (sanitizeForumRequest)
+import           LN.T.Error           (ValidationError (..),
+                                       ValidationErrorCode (..))
+import           LN.T.Forum           (ForumRequest (..))
 import           LN.Validate.Internal
 
 

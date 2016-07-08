@@ -10,12 +10,12 @@ module LN.Generate.Organization (
 
 
 
-import           Data.Either               (isRight)
-import           Data.Monoid               ((<>))
-import           Data.String.Conversions   (cs)
+import           Data.Either              (isRight)
+import           Data.Monoid              ((<>))
+import           Data.String.Conversions  (cs)
 import           LN.Generate.Internal
 import           LN.Sanitize.Organization
-import           LN.T.Organization.Request (OrganizationRequest (..))
+import           LN.T.Organization        (OrganizationRequest (..))
 import           LN.Validate.Organization
 import           Test.QuickCheck
 
