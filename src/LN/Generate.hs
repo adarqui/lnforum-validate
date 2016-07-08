@@ -5,6 +5,7 @@ module LN.Generate (
 
 
 import           LN.Generate.Board        as A
+import           LN.Generate.Default      as A
 import           LN.Generate.Forum        as A
 import           LN.Generate.Organization as A
 import           LN.Generate.Thread       as A

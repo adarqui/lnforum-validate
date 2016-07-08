@@ -24,6 +24,7 @@ library
                      , LN.Validate.Thread
                      , LN.Validate.ThreadPost
                      , LN.Generate
+                     , LN.Generate.Default
                      , LN.Generate.Internal
                      , LN.Generate.Organization
                      , LN.Generate.User
@@ -31,7 +32,6 @@ library
                      , LN.Generate.Board
                      , LN.Generate.Thread
                      , LN.Generate.ThreadPost
-                     , LN.Default
   build-depends:       base
                      , QuickCheck
                      , quickcheck-text

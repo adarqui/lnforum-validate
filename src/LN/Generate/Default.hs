@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-module LN.Default (
+module LN.Generate.Default (
   defaultApiRequest,
   testApiRequest,
   defaultBoardRequest,
