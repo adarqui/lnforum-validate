@@ -54,6 +54,7 @@ test-suite ln-validate-test
                      , text
                      , text-icu
                      , text-regex-replace
+                     , time
                      , haskell-ln-types
                      , ln-validate
   ghc-options:         -Wall -Werror -threaded -rtsopts -with-rtsopts=-N
