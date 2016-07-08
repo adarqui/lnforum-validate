@@ -32,6 +32,7 @@ library
                      , LN.Generate.Board
                      , LN.Generate.Thread
                      , LN.Generate.ThreadPost
+                     , LN.Generate.Permission
   build-depends:       base
                      , QuickCheck
                      , quickcheck-text
