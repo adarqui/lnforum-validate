@@ -1,5 +1,5 @@
-clean:
-	stack clean
-
 build:
 	stack build --fast
+
+clean:
+	stack clean
