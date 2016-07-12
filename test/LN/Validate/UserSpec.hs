@@ -9,8 +9,7 @@ module LN.Validate.UserSpec (
 
 import qualified Data.Text          as T
 import           LN.T.Error
-import           LN.T.Internal.JSON ()
-import           LN.T.User.Request
+import           LN.T.User
 import           LN.Validate.User
 import           Test.Hspec
 

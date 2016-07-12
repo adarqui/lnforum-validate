@@ -54,8 +54,6 @@ test-suite ln-validate-test
   build-depends:       base
                      , hspec
                      , text
-                     , text-icu
-                     , text-regex-replace
                      , haskell-ln-types
                      , ln-validate
   ghc-options:         -Wall -Werror -threaded -rtsopts -with-rtsopts=-N
