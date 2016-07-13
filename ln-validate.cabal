@@ -25,6 +25,7 @@ library
                      , LN.Validate.ThreadPost
                      , LN.Generate
                      , LN.Generate.Default
+                     , LN.Generate.Default.Leuron
                      , LN.Generate.Internal
                      , LN.Generate.Organization
                      , LN.Generate.User

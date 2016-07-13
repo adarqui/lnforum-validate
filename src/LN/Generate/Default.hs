@@ -48,15 +48,15 @@ module LN.Generate.Default (
 
 
 
-import LN.T
-import Data.Time (UTCTime)
+import           Data.Time (UTCTime)
+import           LN.T
 
 
 
 defaultApiRequest :: ApiRequest
 defaultApiRequest = ApiRequest {
     apiRequestComment = Nothing,
-      apiRequestGuard   = 0
+    apiRequestGuard   = 0
 }
 
 testApiRequest :: ApiRequest
