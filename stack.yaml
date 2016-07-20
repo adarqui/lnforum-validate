@@ -39,7 +39,7 @@ packages:
 - '.'
 - '../ln-sanitize'
 - '../haskell-ln-types'
-- '../haskell-api-helpers'
+- '../haskell-api-helpers-shared'
 - '../haskell-ifte'
 # Dependency packages to be pulled from upstream that are not in the resolver
 # (e.g., acme-missiles-0.3)
