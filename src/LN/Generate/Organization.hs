@@ -13,11 +13,13 @@ module LN.Generate.Organization (
 import           Data.Either              (isRight)
 import           Data.Monoid              ((<>))
 import           Data.String.Conversions  (cs)
+import           Test.QuickCheck
+
+import           LN.Generate.Default
 import           LN.Generate.Internal
 import           LN.Sanitize.Organization
 import           LN.T.Organization        (OrganizationRequest (..))
 import           LN.Validate.Organization
-import           Test.QuickCheck
 
 
 
@@ -50,7 +52,7 @@ buildValidOrganization = do
     membership   <- genIO genMembership
     visibility   <- genIO genVisibility
     let name     =  filter (/= ' ') display_name
-    pure $ sanitizeOrganizationRequest $ OrganizationRequest {
+    pure $ sanitizeOrganizationRequest $ defaultOrganizationRequest {
       organizationRequestDisplayName = cs display_name,
       organizationRequestDescription = cs <$> m_desc,
       organizationRequestCompany     = "company",

@@ -13,11 +13,13 @@ module LN.Generate.Board (
 import           Data.Either             (isRight)
 import           Data.String.Conversions (cs)
 import qualified Data.Text               as T (pack)
+import           Test.QuickCheck
+
+import           LN.Generate.Default
 import           LN.Generate.Internal
 import           LN.Sanitize.Board
 import           LN.T.Board              (BoardRequest (..))
 import           LN.Validate.Board
-import           Test.QuickCheck
 
 
 
@@ -52,7 +54,7 @@ buildValidBoard = do
     can_create_threads    <- genIO genBool
     suggested_tags        <- genIO genTags
     tags                  <- genIO genTags
-    pure $ sanitizeBoardRequest $ BoardRequest {
+    pure $ sanitizeBoardRequest $ defaultBoardRequest {
       boardRequestDisplayName        = cs display_name,
       boardRequestDescription        = cs <$> m_desc,
       boardRequestIsAnonymous        = is_anonymous,

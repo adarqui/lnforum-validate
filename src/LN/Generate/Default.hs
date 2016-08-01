@@ -21,6 +21,7 @@ module LN.Generate.Default (
   defaultOrganizationRequest,
   testOrganizationRequest,
   defaultPmRequest,
+  testPmRequest,
   defaultPmInRequest,
   testPmInRequest,
   defaultPmOutRequest,
@@ -76,7 +77,10 @@ defaultBoardRequest = BoardRequest {
   boardRequestSuggestedTags      = [],
   boardRequestIcon               = Nothing,
   boardRequestTags               = [],
-  boardRequestGuard              = 0
+  boardRequestGuard              = 0,
+  -- state
+  boardRequestStateTag           = Nothing,
+  boardRequestStateSuggestedTag  = Nothing
 }
 
 testBoardRequest :: BoardRequest
@@ -110,7 +114,7 @@ testBucketRequest = defaultBucketRequest {
 
 defaultForumRequest :: ForumRequest
 defaultForumRequest = ForumRequest {
-  forumRequestDisplayName          = "default",
+  forumRequestDisplayName          = "",
   forumRequestDescription          = Nothing,
   forumRequestThreadsPerBoard      = 20,
   forumRequestThreadPostsPerThread = 20,
@@ -120,7 +124,9 @@ defaultForumRequest = ForumRequest {
   forumRequestIcon                 = Nothing,
   forumRequestTags                 = [],
   forumRequestVisibility           = Public,
-  forumRequestGuard                = 0
+  forumRequestGuard                = 0,
+  -- state
+  forumRequestStateTag             = Nothing
 }
 
 testForumRequest :: ForumRequest
@@ -218,7 +224,9 @@ defaultOrganizationRequest = OrganizationRequest {
   organizationRequestIcon        = Nothing,
   organizationRequestTags        = [],
   organizationRequestVisibility  = Public,
-  organizationRequestGuard       = 0
+  organizationRequestGuard       = 0,
+  -- state
+  organizationRequestStateTag    = Nothing
 }
 
 testOrganizationRequest :: OrganizationRequest
@@ -234,9 +242,15 @@ testOrganizationRequest = defaultOrganizationRequest {
 
 defaultPmRequest :: PmRequest
 defaultPmRequest = PmRequest {
-  pmRequestSubject = "No Subject",
-  pmRequestBody    = "No Body",
+  pmRequestSubject = "",
+  pmRequestBody    = "",
   pmRequestGuard   = 0
+}
+
+testPmRequest :: PmRequest
+testPmRequest = defaultPmRequest {
+  pmRequestSubject = "No subject.",
+  pmRequestBody    = "No body."
 }
 
 
@@ -326,7 +340,6 @@ defaultTeamRequest :: TeamRequest
 defaultTeamRequest = TeamRequest {
   teamRequestMembership  = Membership_Join,
   teamRequestIcon        = Nothing,
-  teamRequestTags        = [],
   teamRequestVisibility  = Public,
   teamRequestGuard       = 0
 }
@@ -349,7 +362,9 @@ defaultThreadRequest = ThreadRequest {
   threadRequestPoll        = Nothing,
   threadRequestIcon        = Nothing,
   threadRequestTags        = [],
-  threadRequestGuard       = 0
+  threadRequestGuard       = 0,
+  -- state
+  threadRequestStateTag    = Nothing
 }
 
 testThreadRequest :: ThreadRequest
@@ -362,11 +377,14 @@ testThreadRequest = defaultThreadRequest {
 
 defaultThreadPostRequest :: ThreadPostRequest
 defaultThreadPostRequest = ThreadPostRequest {
-  threadPostRequestTitle       = Nothing,
-  threadPostRequestBody        = PostDataEmpty,
-  threadPostRequestTags        = [],
-  threadPostRequestPrivateTags = [],
-  threadPostRequestGuard       = 0
+  threadPostRequestTitle           = Nothing,
+  threadPostRequestBody            = PostDataEmpty,
+  threadPostRequestTags            = [],
+  threadPostRequestPrivateTags     = [],
+  threadPostRequestGuard           = 0,
+  -- state
+  threadPostRequestStateTag        = Nothing,
+  threadPostRequestStatePrivateTag = Nothing
 }
 
 testThreadPostRequest :: ThreadPostRequest
@@ -400,13 +418,16 @@ defaultProfileGender = GenderUnknown
 
 defaultProfileRequest :: ProfileRequest
 defaultProfileRequest = ProfileRequest {
-  profileRequestGender    = defaultProfileGender,
-  profileRequestBirthdate = defaultUTCTime,
-  profileRequestWebsite   = Nothing,
-  profileRequestLocation  = Nothing,
-  profileRequestSignature = Nothing,
-  profileRequestDebug     = False,
-  profileRequestGuard     = 0
+  profileRequestGender        = defaultProfileGender,
+  profileRequestBirthdate     = defaultUTCTime,
+  profileRequestWebsite       = Nothing,
+  profileRequestWebsites      = [],
+  profileRequestLocation      = Nothing,
+  profileRequestSignature     = Nothing,
+  profileRequestDebug         = False,
+  profileRequestGuard         = 0,
+  -- state
+  profileRequestStateWebsites = Nothing
 }
 
 testProfileRequest :: ProfileRequest

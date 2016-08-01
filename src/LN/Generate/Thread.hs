@@ -13,11 +13,13 @@ module LN.Generate.Thread (
 import           Data.Either             (isRight)
 import           Data.String.Conversions (cs)
 import qualified Data.Text               as T (pack)
+import           Test.QuickCheck
+
+import           LN.Generate.Default
 import           LN.Generate.Internal
 import           LN.Sanitize.Thread
 import           LN.T.Thread             (ThreadRequest (..))
 import           LN.Validate.Thread
-import           Test.QuickCheck
 
 
 
@@ -50,7 +52,7 @@ buildValidThread = do
     sticky       <- genIO genBool
     locked       <- genIO genBool
     tags         <- genIO genTags
-    pure $ sanitizeThreadRequest $ ThreadRequest {
+    pure $ sanitizeThreadRequest $ defaultThreadRequest {
       threadRequestDisplayName = cs display_name,
       threadRequestDescription = cs <$> m_desc,
       threadRequestSticky      = sticky,

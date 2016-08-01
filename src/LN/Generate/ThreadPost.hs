@@ -11,11 +11,13 @@ module LN.Generate.ThreadPost (
 import           Data.Either             (isRight)
 import           Data.String.Conversions (cs)
 import qualified Data.Text               as T (pack)
+import           Test.QuickCheck
+
+import           LN.Generate.Default
 import           LN.Generate.Internal
 import           LN.Sanitize.ThreadPost
 import           LN.T.ThreadPost         (ThreadPostRequest (..))
 import           LN.Validate.ThreadPost
-import           Test.QuickCheck
 
 
 
@@ -39,7 +41,7 @@ buildValidThreadPost = do
     body         <- genIO genPostData
     private_tags <- genIO genTags
     tags         <- genIO genTags
-    pure $ sanitizeThreadPostRequest $ ThreadPostRequest {
+    pure $ sanitizeThreadPostRequest $ defaultThreadPostRequest {
       threadPostRequestTitle       = cs <$> m_title,
       threadPostRequestBody       = body,
       threadPostRequestPrivateTags = map T.pack private_tags,

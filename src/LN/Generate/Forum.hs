@@ -23,11 +23,13 @@ module LN.Generate.Forum (
 import           Data.Either             (isRight)
 import           Data.String.Conversions (cs)
 import qualified Data.Text               as T (pack)
+import           Test.QuickCheck
+
+import           LN.Generate.Default
 import           LN.Generate.Internal
 import           LN.Sanitize.Forum
 import           LN.T.Forum              (ForumRequest (..))
 import           LN.Validate.Forum
-import           Test.QuickCheck
 
 
 
@@ -48,7 +50,7 @@ buildValidForum = do
     motw_limit              <- genIO genValidForumMotwLimit
     forum_tags              <- genIO genTags
     visibility              <- genIO genVisibility
-    pure $ sanitizeForumRequest $ ForumRequest {
+    pure $ sanitizeForumRequest $ defaultForumRequest {
       forumRequestDisplayName          = cs display_name,
       forumRequestDescription          = fmap cs m_desc,
       forumRequestThreadsPerBoard      = threads_per_board,
