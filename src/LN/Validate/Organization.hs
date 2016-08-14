@@ -38,7 +38,7 @@ isValidOrganizationDisplayName :: Text -> Either ValidationErrorCode Text
 isValidOrganizationDisplayName name = do
   void $ isValidNonEmptyString name
   void $ isValidLength minOrganizationDisplayName maxOrganizationDisplayName name
-  teifEither name Validate_InvalidCharacters $ onlyAlphaNumAndSpaces name
+  teifEither name Validate_InvalidCharacters $ onlyDisplayNameChars name
 
 
 

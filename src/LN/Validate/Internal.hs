@@ -5,7 +5,7 @@ module LN.Validate.Internal (
   onlyLowerAlphaNum,
   onlyAlphaNum,
   onlyAlphaNumAndSpaces,
-  onlyAlphaNumPeriodsHyphensAndSpaces,
+  onlyDisplayNameChars,
   noSpaces,
   isValid,
   isValidApp,
@@ -54,8 +54,10 @@ onlyAlphaNumAndHyphens = T.all (\c -> isAlphaNum c || c == '-')
 
 
 
-onlyAlphaNumPeriodsHyphensAndSpaces :: Text -> Bool
-onlyAlphaNumPeriodsHyphensAndSpaces = T.all (\c -> isAlphaNum c || c == '-' || c == '.' || isSpace c)
+-- | For users and organizations
+--
+onlyDisplayNameChars :: Text -> Bool
+onlyDisplayNameChars = T.all (\c -> isAlphaNum c || c == '-' || c == '.' || c == '_' || isSpace c)
 
 
 

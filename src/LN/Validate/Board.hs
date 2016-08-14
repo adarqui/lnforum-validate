@@ -55,7 +55,7 @@ minBoardDisplayName :: Int
 minBoardDisplayName = 1
 
 maxBoardDisplayName :: Int
-maxBoardDisplayName = 32
+maxBoardDisplayName = 64
 
 maxBoardDescription :: Int
 maxBoardDescription = 132

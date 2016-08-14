@@ -42,7 +42,7 @@ isValidUserDisplayName :: Text -> Either ValidationErrorCode Text
 isValidUserDisplayName name = do
   void $ isValidNonEmptyString name
   void $ isValidLength minUserDisplayName maxUserDisplayName name
-  teifEither name Validate_InvalidCharacters $ onlyAlphaNumPeriodsHyphensAndSpaces name
+  teifEither name Validate_InvalidCharacters $ onlyDisplayNameChars name
 
 
 
