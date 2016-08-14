@@ -6,6 +6,7 @@ module LN.Validate.Internal (
   onlyAlphaNum,
   onlyAlphaNumAndSpaces,
   onlyDisplayNameChars,
+  onlyDisplayNamePrint,
   noSpaces,
   isValid,
   isValidApp,
@@ -21,7 +22,7 @@ module LN.Validate.Internal (
 
 
 import           Control.Monad (void)
-import           Data.Char     (isAlphaNum, isLower, isSpace)
+import           Data.Char     (isAlphaNum, isLower, isSpace, isPrint)
 import           Data.Ifte     (teifEither)
 import           Data.Text     (Text)
 import qualified Data.Text     as T
@@ -54,10 +55,17 @@ onlyAlphaNumAndHyphens = T.all (\c -> isAlphaNum c || c == '-')
 
 
 
--- | For users and organizations
+-- | For users, organizations, and forums
 --
 onlyDisplayNameChars :: Text -> Bool
 onlyDisplayNameChars = T.all (\c -> isAlphaNum c || c == '-' || c == '.' || c == '_' || isSpace c)
+
+
+
+-- | For boards, and threads
+--
+onlyDisplayNamePrint :: Text -> Bool
+onlyDisplayNamePrint = T.all isPrint
 
 
 

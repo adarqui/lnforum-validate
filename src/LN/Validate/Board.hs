@@ -38,7 +38,7 @@ isValidBoardDisplayName :: Text -> Either ValidationErrorCode Text
 isValidBoardDisplayName name = do
   void $ isValidNonEmptyString name
   void $ isValidLength minBoardDisplayName maxBoardDisplayName name
-  teifEither name Validate_InvalidCharacters $ onlyAlphaNumAndSpaces name
+  teifEither name Validate_InvalidCharacters $ onlyDisplayNamePrint name
 
 
 
@@ -47,7 +47,7 @@ isValidBoardDescription Nothing     = Right Nothing
 isValidBoardDescription (Just desc) = do
   void $ isValidNonEmptyString desc
   void $ isValidLength 1 maxBoardDescription desc
-  teifEither (Just desc) Validate_InvalidCharacters $ onlyAlphaNumAndSpaces desc
+  teifEither (Just desc) Validate_InvalidCharacters $ onlyDisplayNamePrint desc
 
 
 

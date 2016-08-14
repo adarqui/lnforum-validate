@@ -37,7 +37,7 @@ isValidThreadDisplayName :: Text -> Either ValidationErrorCode Text
 isValidThreadDisplayName name = do
   void $ isValidNonEmptyString name
   void $ isValidLength minThreadDisplayName maxThreadDisplayName name
-  teifEither name Validate_InvalidCharacters $ onlyAlphaNumAndSpaces name
+  teifEither name Validate_InvalidCharacters $ onlyDisplayNamePrint name
 
 
 
@@ -46,7 +46,7 @@ isValidThreadDescription Nothing     = Right Nothing
 isValidThreadDescription (Just desc) = do
   void $ isValidNonEmptyString desc
   void $ isValidLength 1 maxThreadDescription desc
-  teifEither (Just desc) Validate_InvalidCharacters $ onlyAlphaNumAndSpaces desc
+  teifEither (Just desc) Validate_InvalidCharacters $ onlyDisplayNamePrint desc
 
 
 
@@ -54,7 +54,7 @@ minThreadDisplayName :: Int
 minThreadDisplayName = 1
 
 maxThreadDisplayName :: Int
-maxThreadDisplayName = 32
+maxThreadDisplayName = 132
 
 maxThreadDescription :: Int
 maxThreadDescription = 132
