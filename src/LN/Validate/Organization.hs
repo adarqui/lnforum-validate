@@ -14,6 +14,8 @@ module LN.Validate.Organization (
 import           Control.Monad            (void)
 import           Data.Ifte                (teifEither)
 import           Data.Text                (Text)
+import           Prelude
+
 import           LN.Sanitize.Organization (sanitizeOrganizationRequest)
 import           LN.T.Error               (ValidationError (..),
                                            ValidationErrorCode (..))

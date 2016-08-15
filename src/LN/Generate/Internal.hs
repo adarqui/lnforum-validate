@@ -38,11 +38,13 @@ module LN.Generate.Internal (
 
 import           Control.Monad.IO.Class (liftIO)
 import qualified Data.Text              as T (pack)
+import           Prelude
+import           Test.QuickCheck
+
 import           LN.T.Membership        (Membership (..))
 import           LN.T.Profile           (ProfileGender (..))
 import           LN.T.ThreadPost        (PostData (..))
 import           LN.T.Visibility        (Visibility (..))
-import           Test.QuickCheck
 
 
 

@@ -14,6 +14,8 @@ module LN.Validate.Thread (
 import           Control.Monad        (void)
 import           Data.Ifte            (teifEither)
 import           Data.Text            (Text)
+import           Prelude
+
 import           LN.Sanitize.Thread   (sanitizeThreadRequest)
 import           LN.T.Error           (ValidationError (..),
                                        ValidationErrorCode (..))

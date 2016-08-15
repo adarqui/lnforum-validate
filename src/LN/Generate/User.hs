@@ -13,11 +13,13 @@ module LN.Generate.User (
 import           Data.Either             (isRight)
 import           Data.Monoid             ((<>))
 import           Data.String.Conversions (cs)
+import           Prelude
+import           Test.QuickCheck
+
 import           LN.Generate.Internal
 import           LN.Sanitize.User
 import           LN.T.User               (UserRequest (..))
 import           LN.Validate.User
-import           Test.QuickCheck
 
 
 

@@ -14,6 +14,8 @@ module LN.Validate.Board (
 import           Control.Monad        (void)
 import           Data.Ifte            (teifEither)
 import           Data.Text            (Text)
+import           Prelude
+
 import           LN.Sanitize.Board    (sanitizeBoardRequest)
 import           LN.T.Board           (BoardRequest (..))
 import           LN.T.Error           (ValidationError (..),

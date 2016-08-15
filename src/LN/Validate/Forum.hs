@@ -24,6 +24,8 @@ module LN.Validate.Forum (
 import           Control.Monad        (void)
 import           Data.Ifte            (teifEither)
 import           Data.Text            (Text)
+import           Prelude
+
 import           LN.Sanitize.Forum    (sanitizeForumRequest)
 import           LN.T.Error           (ValidationError (..),
                                        ValidationErrorCode (..))

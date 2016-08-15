@@ -50,6 +50,8 @@ module LN.Generate.Default (
 
 
 import           Data.Time (UTCTime)
+import           Prelude
+
 import           LN.T
 
 

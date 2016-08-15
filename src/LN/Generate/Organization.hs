@@ -13,6 +13,7 @@ module LN.Generate.Organization (
 import           Data.Either              (isRight)
 import           Data.Monoid              ((<>))
 import           Data.String.Conversions  (cs)
+import           Prelude
 import           Test.QuickCheck
 
 import           LN.Generate.Default

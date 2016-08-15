@@ -13,6 +13,7 @@ module LN.Generate.Thread (
 import           Data.Either             (isRight)
 import           Data.String.Conversions (cs)
 import qualified Data.Text               as T (pack)
+import           Prelude
 import           Test.QuickCheck
 
 import           LN.Generate.Default

@@ -26,6 +26,8 @@ import           Data.Char     (isAlphaNum, isLower, isSpace, isPrint)
 import           Data.Ifte     (teifEither)
 import           Data.Text     (Text)
 import qualified Data.Text     as T
+import           Prelude
+
 import           LN.T.Error    (ApplicationError(..), ValidationError (..), ValidationErrorCode (..))
 
 

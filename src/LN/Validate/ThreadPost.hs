@@ -13,6 +13,8 @@ module LN.Validate.ThreadPost (
 import           Control.Monad          (void)
 import           Data.Ifte              (teifEither)
 import           Data.Text              (Text)
+import           Prelude
+
 import           LN.Sanitize.ThreadPost (sanitizeThreadPostRequest)
 import           LN.T.Error             (ValidationError (..),
                                          ValidationErrorCode (..))
@@ -37,7 +39,7 @@ isValidThreadPostTitle Nothing      = Right Nothing
 isValidThreadPostTitle (Just title) = do
   void $ isValidNonEmptyString title
   void $ isValidLength minThreadPostTitle maxThreadPostTitle title
-  teifEither (Just title) Validate_InvalidCharacters $ onlyAlphaNumAndSpaces title
+  teifEither (Just title) Validate_InvalidCharacters $ onlyDisplayNamePrint title
 
 
 
