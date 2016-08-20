@@ -55,6 +55,5 @@ buildValidUser = do
       userRequestFullName    = cs full_name,
       userRequestEmail       = cs $ name <> "@adarq.org",
       userRequestPlugin      = "ln-validate",
-      userRequestIdent       = cs name,
       userRequestAcceptTOS   = Nothing
     }

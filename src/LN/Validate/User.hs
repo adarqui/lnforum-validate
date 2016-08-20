@@ -33,7 +33,6 @@ validateUserRequest user_req = do
   void $ isValid (Just "full_name")    $ isValidUserFullName userRequestFullName
   void $ isValid (Just "email")        $ isValidEmail userRequestEmail
   void $ isValid (Just "plugin")       $ isValidNonEmptyString userRequestPlugin
-  void $ isValid (Just "ident")        $ isValidNonEmptyString userRequestIdent
   Right z
   where
   z@UserRequest{..} = sanitizeUserRequest user_req

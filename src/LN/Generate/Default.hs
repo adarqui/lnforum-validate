@@ -400,7 +400,6 @@ defaultUserRequest = UserRequest {
   userRequestFullName    = "",
   userRequestEmail       = "",
   userRequestPlugin      = "",
-  userRequestIdent       = "",
   userRequestAcceptTOS   = Nothing
 }
 
@@ -409,8 +408,7 @@ testUserRequest = defaultUserRequest {
   userRequestDisplayName = "test",
   userRequestFullName    = "test",
   userRequestEmail       = "test@test.com",
-  userRequestPlugin      = "test",
-  userRequestIdent       = "test"
+  userRequestPlugin      = "test"
 }
 
 
