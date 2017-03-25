@@ -1,8 +1,8 @@
-name:                ln-validate
+name:                lnotes-validate
 version:             0.1.0.7
 synopsis:            Initial project template from stack
 description:         Please see README.md
-homepage:            https://github.com/adarqui/ln-validate#readme
+homepage:            https://github.com/adarqui/lnotes-validate#readme
 license:             BSD3
 license-file:        LICENSE
 author:              Andrew Darqui
@@ -17,22 +17,12 @@ library
   hs-source-dirs:      src
   exposed-modules:     LN.Validate
                      , LN.Validate.Internal
-                     , LN.Validate.Organization
                      , LN.Validate.User
-                     , LN.Validate.Forum
-                     , LN.Validate.Board
-                     , LN.Validate.Thread
-                     , LN.Validate.ThreadPost
                      , LN.Generate
                      , LN.Generate.Default
                      , LN.Generate.Default.Leuron
                      , LN.Generate.Internal
-                     , LN.Generate.Organization
                      , LN.Generate.User
-                     , LN.Generate.Forum
-                     , LN.Generate.Board
-                     , LN.Generate.Thread
-                     , LN.Generate.ThreadPost
                      , LN.Generate.Permission
   build-depends:       base
                      , QuickCheck
@@ -42,12 +32,12 @@ library
                      , time
                      , transformers
                      , haskell-ifte
-                     , ln-sanitize
-                     , haskell-ln-types
+                     , lnotes-sanitize
+                     , haskell-lnotes-types
   ghc-options:         -Wall -Werror
   default-language:    Haskell2010
 
-test-suite ln-validate-test
+test-suite lnotes-validate-test
   type:                exitcode-stdio-1.0
   hs-source-dirs:      test
   main-is:             Spec.hs
@@ -55,11 +45,11 @@ test-suite ln-validate-test
   build-depends:       base
                      , hspec
                      , text
-                     , haskell-ln-types
-                     , ln-validate
+                     , haskell-lnotes-types
+                     , lnotes-validate
   ghc-options:         -Wall -Werror -threaded -rtsopts -with-rtsopts=-N
   default-language:    Haskell2010
 
 source-repository head
   type:     git
-  location: https://github.com/adarqui/ln-validate
+  location: https://github.com/adarqui/lnotes-validate
