@@ -21,7 +21,8 @@ module LN.Generate.Default (
   testProfileRequest,
   defaultUTCTime,
   defaultTrainingNode,
-  defaultBucketRoundRequest
+  defaultBucketRoundRequest,
+  testBucketRoundRequest
 ) where
 
 
@@ -248,6 +249,14 @@ defaultTrainingNode = TrainingNode {
 
 defaultBucketRoundRequest :: BucketRoundRequest
 defaultBucketRoundRequest = BucketRoundRequest {
+  bucketRoundRequestTrainingStyles = [],
+  bucketRoundRequestThreshold      = 0,
+  bucketRoundRequestTimeLimit      = 0,
+  bucketRoundRequestGuard          = 0
+}
+
+testBucketRoundRequest :: BucketRoundRequest
+testBucketRoundRequest = BucketRoundRequest {
   bucketRoundRequestTrainingStyles = [TS_Simple],
   bucketRoundRequestThreshold      = 3,
   bucketRoundRequestTimeLimit      = 0,
