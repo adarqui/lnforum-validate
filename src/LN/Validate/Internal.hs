@@ -14,6 +14,7 @@ module LN.Validate.Internal (
   isValidSafeName,
   isValidEmail,
   isValidNonEmptyString,
+  isValidNonEmptyList,
   isValidLength,
   isValidIntRange,
   isValidTags
@@ -148,3 +149,8 @@ isValidTags tags = do
   mapM (\tag -> do
     void $ isValidNonEmptyString tag
     teifEither tag Validate_InvalidCharacters $ onlyAlphaNumAndHyphens tag) tags
+
+
+
+isValidNonEmptyList :: Eq a => [a] -> Either ValidationErrorCode [a]
+isValidNonEmptyList a = teifEither a Validate_CannotBeEmpty $ a /= []

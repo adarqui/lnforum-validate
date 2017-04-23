@@ -18,6 +18,7 @@ library
   exposed-modules:     LN.Validate
                      , LN.Validate.Internal
                      , LN.Validate.User
+                     , LN.Validate.BucketRound
                      , LN.Generate
                      , LN.Generate.Default
                      , LN.Generate.Default.Leuron

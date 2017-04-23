@@ -19,7 +19,9 @@ module LN.Generate.Default (
   defaultProfileGender,
   defaultProfileRequest,
   testProfileRequest,
-  defaultUTCTime
+  defaultUTCTime,
+  defaultTrainingNode,
+  defaultBucketRoundRequest
 ) where
 
 
@@ -190,3 +192,64 @@ testProfileRequest = defaultProfileRequest {
 
 defaultUTCTime :: UTCTime
 defaultUTCTime = read "2016-01-01 00:00:00.0 UTC" :: UTCTime
+
+
+
+defaultTrainingNode :: TrainingNode
+defaultTrainingNode = TrainingNode {
+  numTotal          = 0,
+  numKnow           = 0,
+  numDontKnow       = 0,
+  numDontCare       = 0,
+  numProtest        = 0,
+  honorKnow         = 0,
+  honorKnowAt       = Nothing,
+  honorDontKnow     = 0,
+  honorDontKnowAt   = Nothing,
+  honorDontCare     = 0,
+  honorDontCareAt   = Nothing,
+  honorProtest      = 0,
+  honorProtestAt    = Nothing,
+  booleanKnow       = 0,
+  booleanKnowAt     = Nothing,
+  booleanDontKnow   = 0,
+  booleanDontKnowAt = Nothing,
+  booleanDontCare   = 0,
+  booleanDontCareAt = Nothing,
+  booleanProtest    = 0,
+  booleanProtestAt  = Nothing,
+  matchKnow         = 0,
+  matchKnowAt       = Nothing,
+  matchDontKnow     = 0,
+  matchDontKnowAt   = Nothing,
+  matchDontCare     = 0,
+  matchDontCareAt   = Nothing,
+  matchProtest      = 0,
+  matchProtestAt    = Nothing,
+  subsKnow          = 0,
+  subsKnowAt        = Nothing,
+  subsDontKnow      = 0,
+  subsDontKnowAt    = Nothing,
+  subsDontCare      = 0,
+  subsDontCareAt    = Nothing,
+  subsProtest       = 0,
+  subsProtestAt     = Nothing,
+  splitsKnow        = 0,
+  splitsKnowAt      = Nothing,
+  splitsDontKnow    = 0,
+  splitsDontKnowAt  = Nothing,
+  splitsDontCare    = 0,
+  splitsDontCareAt  = Nothing,
+  splitsProtest     = 0,
+  splitsProtestAt   = Nothing
+}
+
+
+
+defaultBucketRoundRequest :: BucketRoundRequest
+defaultBucketRoundRequest = BucketRoundRequest {
+  bucketRoundRequestTrainingStyles = [TS_Simple],
+  bucketRoundRequestThreshold      = 3,
+  bucketRoundRequestTimeLimit      = 0,
+  bucketRoundRequestGuard          = 0
+}
