@@ -257,7 +257,7 @@ defaultBucketRoundRequest = BucketRoundRequest {
 
 testBucketRoundRequest :: BucketRoundRequest
 testBucketRoundRequest = BucketRoundRequest {
-  bucketRoundRequestTrainingStyles = [TS_Simple],
+  bucketRoundRequestTrainingStyles = [TS_Honor],
   bucketRoundRequestThreshold      = 3,
   bucketRoundRequestTimeLimit      = 0,
   bucketRoundRequestGuard          = 0
