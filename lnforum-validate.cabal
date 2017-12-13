@@ -1,8 +1,8 @@
-name:                lnotes-validate
+name:                lnforum-validate
 version:             0.1.0.7
 synopsis:            Initial project template from stack
 description:         Please see README.md
-homepage:            https://github.com/adarqui/lnotes-validate#readme
+homepage:            https://github.com/adarqui/lnforum-validate#readme
 license:             BSD3
 license-file:        LICENSE
 author:              Andrew Darqui
@@ -18,10 +18,7 @@ library
   exposed-modules:     LN.Validate
                      , LN.Validate.Internal
                      , LN.Validate.User
-                     , LN.Validate.BucketRound
                      , LN.Generate
-                     , LN.Generate.Default
-                     , LN.Generate.Default.Leuron
                      , LN.Generate.Internal
                      , LN.Generate.User
                      , LN.Generate.Permission
@@ -33,12 +30,12 @@ library
                      , time
                      , transformers
                      , haskell-ifte
-                     , lnotes-sanitize
-                     , haskell-lnotes-types
+                     , lnforum-sanitize
+                     , haskell-lnforum-types
   ghc-options:         -Wall -Werror
   default-language:    Haskell2010
 
-test-suite lnotes-validate-test
+test-suite lnforum-validate-test
   type:                exitcode-stdio-1.0
   hs-source-dirs:      test
   main-is:             Spec.hs
@@ -46,11 +43,11 @@ test-suite lnotes-validate-test
   build-depends:       base
                      , hspec
                      , text
-                     , haskell-lnotes-types
-                     , lnotes-validate
+                     , haskell-lnforum-types
+                     , lnforum-validate
   ghc-options:         -Wall -Werror -threaded -rtsopts -with-rtsopts=-N
   default-language:    Haskell2010
 
 source-repository head
   type:     git
-  location: https://github.com/adarqui/lnotes-validate
+  location: https://github.com/adarqui/lnforum-validate
