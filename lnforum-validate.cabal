@@ -19,6 +19,7 @@ library
                      , LN.Validate.Internal
                      , LN.Validate.User
                      , LN.Generate
+                     , LN.Generate.Default
                      , LN.Generate.Internal
                      , LN.Generate.User
                      , LN.Generate.Permission
