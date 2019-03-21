@@ -1,6 +1,6 @@
-# ln-validate
+# lnforum-validate
 
-Validation of ln-types, usually API requests.
+Validation of lnforum-types, usually API requests.
 
 ## tests
 
