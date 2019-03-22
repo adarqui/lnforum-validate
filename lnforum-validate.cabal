@@ -32,7 +32,7 @@ library
                      , transformers
                      , haskell-ifte
                      , lnforum-sanitize
-                     , haskell-lnforum-types
+                     , lnforum-types-gen
   ghc-options:         -Wall -Werror
   default-language:    Haskell2010
 
@@ -44,7 +44,7 @@ test-suite lnforum-validate-test
   build-depends:       base
                      , hspec
                      , text
-                     , haskell-lnforum-types
+                     , lnforum-types-gen
                      , lnforum-validate
   ghc-options:         -Wall -Werror -threaded -rtsopts -with-rtsopts=-N
   default-language:    Haskell2010

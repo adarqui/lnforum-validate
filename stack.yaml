@@ -2,7 +2,7 @@ resolver: lts-8.5
 packages:
 - .
 - ../lnforum-sanitize
-- ../haskell-lnforum-types
+- ../lnforum-types-gen
 - ../haskell-api-helpers-shared
 - ../haskell-ifte
 extra-deps:

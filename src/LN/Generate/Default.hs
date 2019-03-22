@@ -5,8 +5,6 @@ module LN.Generate.Default (
   testApiRequest,
   defaultLikeRequest,
   testLikeRequest,
-  defaultStarRequest,
-  testStarRequest,
   defaultUserRequest,
   testUserRequest,
   defaultProfileGender,
@@ -47,18 +45,6 @@ defaultLikeRequest = LikeRequest {
 
 testLikeRequest :: LikeRequest
 testLikeRequest = defaultLikeRequest { likeRequestReason = Just "test" }
-
-
-
-
-defaultStarRequest :: StarRequest
-defaultStarRequest = StarRequest {
-  starRequestReason = Nothing,
-  starRequestGuard  = 0
-}
-
-testStarRequest :: StarRequest
-testStarRequest = defaultStarRequest { starRequestReason = Just "test" }
 
 
 
