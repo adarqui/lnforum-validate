@@ -16,13 +16,19 @@ cabal-version:       >=1.10
 library
   hs-source-dirs:      src
   exposed-modules:     LN.Validate
+                     , LN.Validate.Board
                      , LN.Validate.Internal
+                     , LN.Validate.Thread
+                     , LN.Validate.ThreadPost
                      , LN.Validate.User
                      , LN.Generate
+                     , LN.Generate.Board
                      , LN.Generate.Default
                      , LN.Generate.Internal
-                     , LN.Generate.User
                      , LN.Generate.Permission
+                     , LN.Generate.Thread
+                     , LN.Generate.ThreadPost
+                     , LN.Generate.User
   build-depends:       base
                      , QuickCheck
                      , quickcheck-text

@@ -3,6 +3,8 @@
 module LN.Generate.Default (
   defaultApiRequest,
   testApiRequest,
+  defaultBoardRequest,
+  testBoardRequest,
   defaultLikeRequest,
   testLikeRequest,
   defaultUserRequest,
@@ -10,6 +12,10 @@ module LN.Generate.Default (
   defaultProfileGender,
   defaultProfileRequest,
   testProfileRequest,
+  defaultThreadRequest,
+  testThreadRequest,
+  defaultThreadPostRequest,
+  testThreadPostRequest,
   defaultUTCTime
 ) where
 
@@ -31,6 +37,29 @@ defaultApiRequest = ApiRequest {
 testApiRequest :: ApiRequest
 testApiRequest = defaultApiRequest {
     apiRequestComment = Just "test"
+}
+
+
+
+defaultBoardRequest :: BoardRequest
+defaultBoardRequest = BoardRequest {
+  boardRequestDisplayName        = "",
+  boardRequestDescription        = Nothing,
+  boardRequestBoardType          = FixMe,
+  boardRequestActive             = True,
+  boardRequestIsAnonymous        = False,
+  boardRequestCanCreateBoards    = True,
+  boardRequestCanCreateThreads   = True,
+  boardRequestVisibility         = Public,
+  boardRequestIcon               = Nothing,
+  boardRequestTags               = [],
+  boardRequestGuard              = 0
+}
+
+testBoardRequest :: BoardRequest
+testBoardRequest = testBoardRequest {
+  boardRequestDisplayName = "test",
+  boardRequestDescription = Just "test"
 }
 
 
@@ -90,6 +119,45 @@ testProfileRequest = defaultProfileRequest {
   profileRequestLocation  = Just "FL",
   profileRequestSignature = Just "go get it."
 }
+
+
+
+defaultThreadRequest :: ThreadRequest
+defaultThreadRequest = ThreadRequest {
+  threadRequestDisplayName = "",
+  threadRequestDescription = Nothing,
+  threadRequestSticky      = False,
+  threadRequestLocked      = False,
+  threadRequestPoll        = Nothing,
+  threadRequestIcon        = Nothing,
+  threadRequestTags        = [],
+  threadRequestGuard       = 0,
+  -- state
+  threadRequestStateTag    = Nothing
+}
+
+testThreadRequest :: ThreadRequest
+testThreadRequest = defaultThreadRequest {
+  threadRequestDisplayName = "test",
+  threadRequestDescription = Just "test"
+}
+
+
+
+defaultThreadPostRequest :: ThreadPostRequest
+defaultThreadPostRequest = ThreadPostRequest {
+  threadPostRequestTitle           = Nothing,
+  threadPostRequestBody            = PostDataEmpty,
+  threadPostRequestTags            = [],
+  threadPostRequestPrivateTags     = [],
+  threadPostRequestGuard           = 0,
+  -- state
+  threadPostRequestStateTag        = Nothing,
+  threadPostRequestStatePrivateTag = Nothing
+}
+
+testThreadPostRequest :: ThreadPostRequest
+testThreadPostRequest = defaultThreadPostRequest { threadPostRequestTitle = Just "test" }
 
 
 
