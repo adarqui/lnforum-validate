@@ -4,6 +4,7 @@ module LN.Validate (
 
 
 
+import           LN.Validate.Forum      as A
 import           LN.Validate.Board      as A
 import           LN.Validate.Thread     as A
 import           LN.Validate.ThreadPost as A

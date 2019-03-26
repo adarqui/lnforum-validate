@@ -16,6 +16,7 @@ cabal-version:       >=1.10
 library
   hs-source-dirs:      src
   exposed-modules:     LN.Validate
+                     , LN.Validate.Forum
                      , LN.Validate.Board
                      , LN.Validate.Internal
                      , LN.Validate.Thread
