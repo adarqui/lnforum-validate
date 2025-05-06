@@ -11,7 +11,6 @@ module LN.Generate.User (
 
 
 import           Data.Either             (isRight)
-import           Data.Monoid             ((<>))
 import           Data.String.Conversions (cs)
 import           Prelude
 import           Test.QuickCheck
